@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض خطة التطوير - مكتب الثمالي للمحاماة | Richline.sa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e293b', // Slate 800 - Deep Navy/Gray
+                        secondary: '#d97706', // Amber 600 - Premium Gold
+                        lightbg: '#f8fafc', // Slate 50 - Very Light Gray
+                        textmain: '#334155', // Slate 700 - Dark Gray text
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            color: #334155; 
+            background-color: #f8fafc;
+            overflow: hidden; /* Hide main body scroll */
+        }
+
+        /* Presentation Scroll Snapping */
+        .deck-container {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            scroll-snap-align: start;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Slide Titles */
+        .slide-title { 
+            font-size: 2.25rem;
+            font-weight: 900;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .slide-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Tables */
+        .custom-table th { background-color: #1e293b; color: #ffffff; font-weight: 700; padding: 0.75rem; text-align: right; }
+        .custom-table td { padding: 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+        .custom-table tr:hover { background-color: #f1f5f9; }
+
+        /* Next Slide Indicator */
+        .next-slide-btn {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: #94a3b8;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .next-slide-btn:hover { opacity: 1; color: #d97706; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-10px) translateX(-50%); }
+            60% { transform: translateY(-5px) translateX(-50%); }
+        }
+
+        /* Richline Watermark */
+        .watermark {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.6;
+        }
+        
+        /* Progress Bar Animation */
+        .progress-bar {
+            transition: width 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Pitch Deck Container -->
+    <main class="deck-container">
+
+        <!-- Slide 1: Cover -->
+        <section id="slide-1" class="slide bg-primary text-white">
+            <div class="container mx-auto px-6 relative z-10 max-w-5xl text-center">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-6">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Digital Strategy Pitch Deck</span>
+                </div>
+
+                <!-- Agency Badge -->
+                <div class="mx-auto mb-8 flex items-center justify-center gap-3 bg-white/10 w-fit px-6 py-2 rounded-full border border-white/20 backdrop-blur-md">
+                    <i class="fa-solid fa-chart-line text-secondary"></i>
+                    <span class="text-sm font-bold tracking-widest uppercase">مقدم من: Richline.sa</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight text-white">
+                    خطة التطوير الرقمي الشاملة
+                </h1>
+                <p class="text-2xl font-medium text-gray-300 mb-8">
+                    مكتب الثمالي للمحاماة والاستشارات القانونية
+                </p>
+                
+                <div class="w-24 h-2 bg-secondary mx-auto rounded-full mb-8"></div>
+                
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    استراتيجية تحويل الحضور الرقمي من "موقع تعريفي" إلى "منصة رائدة لجلب العملاء المؤهلين" (Lead Generation).
+                </p>
+            </div>
+            
+            <a href="#slide-2" class="next-slide-btn text-3xl text-white"><i class="fa-solid fa-chevron-down"></i></a>
+        </section>
+
+        <!-- Slide 2: Executive Summary -->
+        <section id="slide-2" class="slide bg-white">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Market Overview Strategy</span>
+                </div>
+
+                <h2 class="slide-title">لماذا التغيير الآن؟ (ملخص السوق)</h2>
+                <p class="slide-subtitle">إحصائيات تحتم الانتقال الفوري لاستراتيجية الاستحواذ الرقمي</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-lightbg p-8 rounded-2xl border border-gray-100 text-center shadow-sm">
+                        <i class="fa-solid fa-chart-pie text-5xl text-blue-500 mb-6"></i>
+                        <h3 class="text-4xl font-black text-primary mb-2">8.4<span class="text-xl"> مليار $</span></h3>
+                        <p class="text-gray-600 font-bold">حجم سوق الخدمات القانونية</p>
+                        <p class="text-sm text-gray-500 mt-2">المتوقع في السعودية بحلول 2030.</p>
+                    </div>
+                    
+                    <div class="bg-lightbg p-8 rounded-2xl border border-gray-100 text-center shadow-sm border-t-4 border-t-secondary transform scale-105 shadow-lg">
+                        <i class="fa-solid fa-magnifying-glass text-5xl text-secondary mb-6"></i>
+                        <h3 class="text-4xl font-black text-primary mb-2">96%</h3>
+                        <p class="text-gray-600 font-bold">من العملاء يبدأون بالبحث</p>
+                        <p class="text-sm text-gray-500 mt-2">عبر محركات البحث لإيجاد محامي.</p>
+                    </div>
+
+                    <div class="bg-lightbg p-8 rounded-2xl border border-gray-100 text-center shadow-sm">
+                        <i class="fa-solid fa-laptop-medical text-5xl text-indigo-500 mb-6"></i>
+                        <h3 class="text-4xl font-black text-primary mb-2">74%</h3>
+                        <p class="text-gray-600 font-bold">يقيمون الموقع أولاً</p>
+                        <p class="text-sm text-gray-500 mt-2">قبل اتخاذ قرار الاتصال بالمكتب.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-3" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- ==================== SECTION 1: MEDIA BUYING ==================== -->
+
+        <!-- Slide 3: Media Buying - Analysis & Audience -->
+        <section id="slide-3" class="slide bg-lightbg border-y border-gray-200">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Media Buying Strategy</span>
+                </div>
+
+                <h2 class="slide-title">التحليل، الأهداف، والجمهور المستهدف</h2>
+                <p class="slide-subtitle">هندسة الإعلانات المدفوعة للوصول الدقيق وبناء الثقة</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Analysis -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-blue-500">
+                        <h3 class="text-xl font-bold mb-4 text-primary"><i class="fa-solid fa-chart-line text-blue-500 ml-2"></i> الرؤية والتحليل</h3>
+                        <p class="text-sm text-gray-600 mb-3">
+                            السوق السعودي يشهد طلباً متزايداً على الخدمات القانونية مدفوعاً برؤية 2030 وزيادة النزاعات.
+                        </p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><strong class="text-primary">نقاط القوة:</strong> تخصص دقيق وهوية مهنية.</li>
+                            <li><strong class="text-primary">الفرصة:</strong> استهداف الباحثين "في اللحظة الآنية" وبناء الثقة للجمهور العام.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Objectives -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-secondary">
+                        <h3 class="text-xl font-bold mb-4 text-primary"><i class="fa-solid fa-bullseye text-secondary ml-2"></i> أهداف الخطة</h3>
+                        <ul class="text-sm text-gray-600 space-y-4">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-handshake-angle text-secondary mt-1"></i>
+                                <span><strong class="text-primary block">زيادة الاستشارات:</strong> أقصى عدد من طلبات الاستشارات الأولية (المدفوعة والمجانية).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-shield-halved text-secondary mt-1"></i>
+                                <span><strong class="text-primary block">بناء الثقة:</strong> تعزيز العلامة التجارية كمكتب موثوق واحترافي.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-lightbulb text-secondary mt-1"></i>
+                                <span><strong class="text-primary block">الوعي بالخدمات:</strong> تعريف العملاء بخدمات محددة يجهلون تواجدها.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Audience -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-indigo-500">
+                        <h3 class="text-xl font-bold mb-4 text-primary"><i class="fa-solid fa-users text-indigo-500 ml-2"></i> شرائح الجمهور</h3>
+                        <div class="space-y-4">
+                            <div class="bg-lightbg p-3 rounded border border-gray-200">
+                                <h4 class="font-bold text-sm text-indigo-600 mb-1">الشريحة (أ) - قطاع الأعمال B2B</h4>
+                                <p class="text-xs text-gray-600">أصحاب الشركات والمدراء التنفيذيون. <br><strong>الاحتياج:</strong> صياغة عقود، قضايا تجارية، تحكيم.</p>
+                            </div>
+                            <div class="bg-lightbg p-3 rounded border border-gray-200">
+                                <h4 class="font-bold text-sm text-indigo-600 mb-1">الشريحة (ب) - الأفراد B2C</h4>
+                                <p class="text-xs text-gray-600">الرجال والنساء (25-55 سنة). <br><strong>الاحتياج:</strong> طلاق وخلع، نفقة، ميراث، جزائي، عقارات.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-4" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- Slide 4: Media Platforms & Budget -->
+        <section id="slide-4" class="slide bg-white">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Media Buying Strategy</span>
+                </div>
+
+                <h2 class="slide-title">استراتيجية المنصات وتوزيع الميزانية</h2>
+                <p class="slide-subtitle">الاعتماد حصرياً على Google و Meta بمهام استراتيجية منفصلة</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                    <!-- Google Strategy -->
+                    <div class="lg:col-span-2 bg-lightbg p-8 rounded-2xl border border-gray-200 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-blue-500"></div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary flex items-center gap-2">
+                            <i class="fa-brands fa-google text-blue-500 text-3xl"></i> Google Ads
+                        </h3>
+                        <p class="text-sm font-bold text-blue-600 mb-4 bg-blue-50 inline-block px-3 py-1 rounded-full">استراتيجية "النية الشرائية"</p>
+                        
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li><strong class="text-primary block">نوع الحملات:</strong> شبكة البحث (Search Network) فقط.</li>
+                            <li><strong class="text-primary block mt-2">الكلمات المفتاحية:</strong>
+                                <ul class="list-disc pr-5 mt-1 text-gray-500">
+                                    <li>عام: "أفضل محامي في الرياض"</li>
+                                    <li>تخصصي: "محامي قضايا تجارية"، "محامي خلع"</li>
+                                </ul>
+                            </li>
+                            <li><strong class="text-primary block mt-2">الاستهداف الجغرافي:</strong> الرياض، جدة، الدمام أولاً.</li>
+                            <li><strong class="text-primary block mt-2">الامتدادات (Extensions):</strong> رقم الهاتف المباشر، العنوان، روابط سريعة للخدمات.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Meta Strategy -->
+                    <div class="lg:col-span-2 bg-lightbg p-8 rounded-2xl border border-gray-200 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-2 bg-indigo-500"></div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary flex items-center gap-2">
+                            <i class="fa-brands fa-meta text-indigo-500 text-3xl"></i> Meta Ads
+                        </h3>
+                        <p class="text-sm font-bold text-indigo-600 mb-4 bg-indigo-50 inline-block px-3 py-1 rounded-full">استراتيجية "الوعي والتفاعل"</p>
+                        
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li><strong class="text-primary block">نوع الحملات:</strong>
+                                <ul class="list-disc pr-5 mt-1 text-gray-500">
+                                    <li>Traffic (لتوجيه الزوار للخدمات).</li>
+                                    <li>Lead Gen (لجمع طلبات استشارة عبر ماسنجر/واتساب).</li>
+                                </ul>
+                            </li>
+                            <li><strong class="text-primary block mt-2">المحتوى الإعلاني:</strong> تصاميم احترافية وفيديوهات Reels لمحامين يقدمون نصائح قانونية لبناء الثقة.</li>
+                            <li><strong class="text-primary block mt-2">الاستهداف:</strong> العمر +25 (قدرة مالية)، اهتمامات: قانون، عقارات، أعمال.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Budget Allocation Bars -->
+                    <div class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-md border-2 border-secondary flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-primary mb-6 text-center"><i class="fa-solid fa-wallet text-green-500 ml-2"></i> توزيع الميزانية</h3>
+                        
+                        <div class="space-y-8">
+                            <!-- Google -->
+                            <div>
+                                <div class="flex justify-between text-sm font-bold text-gray-700 mb-2">
+                                    <span class="flex items-center gap-2"><i class="fa-brands fa-google text-blue-500"></i> جوجل</span>
+                                    <span class="text-blue-600 text-lg">70%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                                    <div class="bg-blue-500 h-4 rounded-full progress-bar" style="width: 70%"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2 text-center">بسبب نية الشراء العالية</p>
+                            </div>
+                            <!-- Meta -->
+                            <div>
+                                <div class="flex justify-between text-sm font-bold text-gray-700 mb-2">
+                                    <span class="flex items-center gap-2"><i class="fa-brands fa-meta text-indigo-500"></i> ميتا</span>
+                                    <span class="text-indigo-600 text-lg">30%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                                    <div class="bg-indigo-500 h-4 rounded-full progress-bar" style="width: 30%"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2 text-center">للتواجد الذهني والوصول</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-5" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- Slide 5: Ad Copy, Timeline & KPIs -->
+        <section id="slide-5" class="slide bg-lightbg border-y border-gray-200">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Media Buying Strategy</span>
+                </div>
+
+                <h2 class="slide-title">المحتوى الإعلاني، التنفيذ، ومقاييس النجاح</h2>
+                <p class="slide-subtitle">إطلاق محكم وتتبع دقيق للمؤشرات لضمان عائد الاستثمار (ROI)</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Ad Copy -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col">
+                        <h3 class="text-lg font-bold mb-4 text-primary border-b pb-2"><i class="fa-solid fa-bullhorn text-amber-500 ml-2"></i> استراتيجية المحتوى (Ad Copy)</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded border border-blue-100">
+                                <h4 class="font-bold text-sm text-blue-600 mb-2"><i class="fa-brands fa-google"></i> نص إعلان جوجل (Search)</h4>
+                                <p class="text-xs text-gray-700 font-bold mb-1">العنوان: محامي معتمد في السعودية | الثمالي للمحاماة</p>
+                                <p class="text-xs text-gray-600">الوصف: خبرة في القضايا التجارية والأسرية والعمالية. احصل على استشارتك القانونية الآن مع فريق متخصص. سرية تامة واحترافية.</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded border border-indigo-100">
+                                <h4 class="font-bold text-sm text-indigo-600 mb-2"><i class="fa-brands fa-instagram"></i> إعلان ميتا (Social)</h4>
+                                <p class="text-xs text-gray-600">هل تواجه نزاعاً تجارياً أو تحتاج استشارة موثوقة؟ الثمالي للمحاماة يقدم لك حلولاً متكاملة وفق الأنظمة السعودية. تواصل معنا لحجز موعدك. <br><span class="text-indigo-500 font-bold">(مرفق بصورة احترافية للمكتب)</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col">
+                        <h3 class="text-lg font-bold mb-4 text-primary border-b pb-2"><i class="fa-solid fa-calendar-days text-secondary ml-2"></i> خطة التنفيذ (Timeline)</h3>
+                        <ul class="space-y-4 text-sm relative border-r-2 border-gray-200 pr-4 ml-2">
+                            <li class="relative">
+                                <span class="absolute -right-[21px] top-1 w-3 h-3 rounded-full bg-gray-400"></span>
+                                <strong class="text-primary block">الأسبوع الأول (الإعداد):</strong>
+                                <span class="text-gray-500 text-xs block mt-1">ربط (GA4) و (GTM)، إنشاء الحسابات الإعلانية، وتجهيز التصاميم.</span>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -right-[21px] top-1 w-3 h-3 rounded-full bg-blue-500"></span>
+                                <strong class="text-primary block">الأسبوع 2 و 3 (الإطلاق):</strong>
+                                <span class="text-gray-500 text-xs block mt-1">إطلاق جوجل بميزانية منخفضة للاختبار، وإطلاق ميتا لحملات الوعي والمراسلة.</span>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -right-[21px] top-1 w-3 h-3 rounded-full bg-secondary"></span>
+                                <strong class="text-primary block">الأسبوع الرابع (التحسين):</strong>
+                                <span class="text-gray-500 text-xs block mt-1">تحليل البيانات (أي الكلمات والتصاميم نجحت؟) وإيقاف الضعيف لتعزيز القوي.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- KPIs -->
+                    <div class="bg-primary text-white p-6 rounded-xl shadow-lg relative overflow-hidden flex flex-col">
+                        <i class="fa-solid fa-chart-simple absolute -left-4 -bottom-4 text-8xl text-white/5"></i>
+                        <h3 class="text-lg font-bold mb-4 text-secondary border-b border-gray-700 pb-2"><i class="fa-solid fa-crosshairs ml-2"></i> مؤشرات الأداء (KPIs)</h3>
+                        <p class="text-xs text-gray-400 mb-4">لقياس نجاح الحملات وتحسين العائد المالي، سنراقب بدقة:</p>
+                        
+                        <div class="space-y-4 flex-grow">
+                            <div class="bg-slate-800 p-3 rounded border border-slate-700">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-sm text-white">تكلفة العميل (CPL)</h4>
+                                </div>
+                                <p class="text-xs text-gray-400">تكلفة الحصول على استشارة أو اتصال عبر النماذج.</p>
+                            </div>
+                            <div class="bg-slate-800 p-3 rounded border border-slate-700">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-sm text-white">معدل التحويل (Conv. Rate)</h4>
+                                </div>
+                                <p class="text-xs text-gray-400">نسبة الزوار الذين أتموا الاتصال أو ملء النموذج.</p>
+                            </div>
+                            <div class="bg-slate-800 p-3 rounded border border-slate-700">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-sm text-white">نسبة النقر (CTR)</h4>
+                                </div>
+                                <p class="text-xs text-gray-400">في إعلانات جوجل للتأكد من جاذبية وصياغة الإعلان.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-6" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- ==================== SECTION 2: SEO ==================== -->
+
+        <!-- Slide 6: SEO Strategy -->
+        <section id="slide-6" class="slide bg-white">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">SEO Strategy</span>
+                </div>
+
+                <h2 class="slide-title">استراتيجية محركات البحث (SEO)</h2>
+                <p class="slide-subtitle">جلب زيارات "مؤهلة" ذات نية تعاقد مباشر (Buyer Intent)</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-lightbg p-8 rounded-xl shadow-sm border-r-4 border-blue-500">
+                        <i class="fa-solid fa-key text-3xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4 text-primary">الكلمات المفتاحية</h3>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> التركيز على نية الشراء: <strong>"توكيل محامي تجاري"</strong>.</li>
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> استهداف معلوماتي لجذب زيارات ضخمة.</li>
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> بناء "صوامع المحتوى" (Content Silos).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-lightbg p-8 rounded-xl shadow-sm border-r-4 border-indigo-500">
+                        <i class="fa-solid fa-code text-3xl text-indigo-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4 text-primary">السيو الداخلي (On-Page)</h3>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> بنية هرمية مسطحة (أقصى عمق 3 نقرات).</li>
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> تضمين (Schema) للخدمات القانونية.</li>
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> استراتيجية الربط الداخلي الذكي.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-lightbg p-8 rounded-xl shadow-sm border-r-4 border-secondary">
+                        <i class="fa-solid fa-link text-3xl text-secondary mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4 text-primary">السيو الخارجي (Off-Page)</h3>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> مقالات استضافية (PR) بمنصات اقتصادية.</li>
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> التواجد في أدلة هيئة المحامين.</li>
+                            <li><i class="fa-solid fa-check text-green-500 ml-2"></i> إشارات قوية من LinkedIn.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-7" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- Slide 7: Content & SEO Execution -->
+        <section id="slide-7" class="slide bg-lightbg border-y border-gray-200">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">SEO Strategy</span>
+                </div>
+
+                <h2 class="slide-title">خطة المحتوى والتنفيذ (SEO Matrix)</h2>
+                <p class="slide-subtitle">استغلال التعديلات التشريعية (نظام الشركات، العمل، البيانات) لجذب العملاء في كل مراحل القمع.</p>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <table class="w-full text-sm text-right custom-table">
+                        <thead>
+                            <tr>
+                                <th class="w-1/3">الموضوع (المقال/الصفحة)</th>
+                                <th>النية (Intent)</th>
+                                <th class="w-1/3">الإجراء المطلوب (CTA)</th>
+                                <th class="text-center">مرحلة العميل</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr>
+                                <td class="font-bold text-primary">تحديثات نظام العمل السعودي 2025</td>
+                                <td>معلوماتية (TOFU)</td>
+                                <td class="text-blue-600 font-bold"><i class="fa-solid fa-download ml-1"></i> تحميل قائمة الامتثال المجانية</td>
+                                <td class="text-center"><span class="bg-gray-200 px-3 py-1 rounded text-xs font-bold">وعي</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-primary">إجراءات الترافع في القضايا التجارية</td>
+                                <td>تجارية (MOFU)</td>
+                                <td class="text-blue-600 font-bold"><i class="fa-solid fa-calendar-check ml-1"></i> احجز تقييم لقضيتك</td>
+                                <td class="text-center"><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-xs font-bold">اهتمام</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-primary">لماذا تحتاج باقة استشارات قانونية؟</td>
+                                <td>شرائية (BOFU)</td>
+                                <td class="text-blue-600 font-bold"><i class="fa-solid fa-file-invoice-dollar ml-1"></i> اطلب عرض سعر باقة الشركات</td>
+                                <td class="text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded text-xs font-bold">قرار</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-primary">تطبيق نظام حماية البيانات (PDPL)</td>
+                                <td>معلوماتية (TOFU)</td>
+                                <td class="text-blue-600 font-bold"><i class="fa-solid fa-shield ml-1"></i> مراجعة قانونية للسياسات</td>
+                                <td class="text-center"><span class="bg-gray-200 px-3 py-1 rounded text-xs font-bold">وعي</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-primary">التحكيم التجاري: أسرع طرق التسوية</td>
+                                <td>شرائية (BOFU)</td>
+                                <td class="text-blue-600 font-bold"><i class="fa-solid fa-gavel ml-1"></i> وكّل محكماً معتمداً الآن</td>
+                                <td class="text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded text-xs font-bold">قرار</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-8" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- Slide 8: SEO Competitor Analysis -->
+        <section id="slide-8" class="slide bg-white">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">SEO & Market Strategy</span>
+                </div>
+
+                <h2 class="slide-title">تحليل المنافسين والفجوات الاستراتيجية</h2>
+                <p class="slide-subtitle">دراسة أبرز المتصدرين لاستغلال نقاط ضعفهم وتحقيق اختراق سريع</p>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <table class="w-full text-sm text-right custom-table">
+                        <thead>
+                            <tr>
+                                <th class="w-1/5">المنافس المتصدر</th>
+                                <th class="w-1/4">نقاط القوة الرقمية لديهم</th>
+                                <th class="w-1/4">نقاط الضعف لديهم</th>
+                                <th class="w-auto">الفجوات (Opportunities)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr>
+                                <td class="font-bold text-primary bg-gray-50">مكتب سند الجعيد</td>
+                                <td>تصدر في السيو المحلي (Local SEO).</td>
+                                <td>الاعتماد على الحشو بالكلمات المفتاحية مما يضعف (UX).</td>
+                                <td><span class="text-blue-600 font-bold">الكلمات:</span> استهداف كلمات طويلة الذيل للشركات وواجهات أكثر موثوقية.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-primary bg-gray-50">شركة اسيسيور</td>
+                                <td>متجر إلكتروني، وتخصيص دقيق للمجالات.</td>
+                                <td>تعقيد التصفح، مسار تحويل طويل قبل تأكيد الطلب.</td>
+                                <td><span class="text-blue-600 font-bold">المحتوى:</span> أدوات وأدلة قانونية عملية (Lead Magnets).</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-primary bg-gray-50">التميمي ومشاركوه</td>
+                                <td>سلطة نطاق (DA) عالية ونشرات عميقة.</td>
+                                <td>تركيز حصري على الـ Enterprise مما يخلق رهبة للـ SMEs.</td>
+                                <td><span class="text-blue-600 font-bold">الاستهداف:</span> تسويق "باقات قانونية" للشركات المتوسطة بأسعار شفافة.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-primary bg-gray-50">شركة العزام والشانف</td>
+                                <td>تقسيم واضح وخبرات محامين بارزة.</td>
+                                <td>غياب الأتمتة، واعتماد كلي على الاتصال המباشر فقط.</td>
+                                <td><span class="text-blue-600 font-bold">الأتمتة:</span> تفعيل مسارات التقاط البيانات للعملاء المترددين.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold text-primary bg-gray-50">مكتب محمد اليزيدي</td>
+                                <td>تقييمات ممتازة في خرائط جوجل.</td>
+                                <td>موقع تعريفي يفتقر لصفحات الهبوط المستقلة.</td>
+                                <td><span class="text-blue-600 font-bold">التحويل:</span> بناء صفحات هبوط تحول الزيارات لاستشارات مدفوعة.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-9" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- ==================== SECTION 3: UI/UX & CRO ==================== -->
+
+        <!-- Slide 9: UI/UX & CRO Strategy -->
+        <section id="slide-9" class="slide bg-lightbg border-y border-gray-200">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">UI/UX & CRO Strategy</span>
+                </div>
+
+                <h2 class="slide-title">تجربة المستخدم وهندسة التحويل (UI/UX)</h2>
+                <p class="slide-subtitle">تقليل الاحتكاك البصري (Friction) لرفع نسبة التحويل من 0.5% إلى +2.0%</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-4 font-bold border-2 border-blue-100">1</div>
+                        <h4 class="font-bold text-lg text-primary mb-3">نماذج تقييم متعددة الخطوات</h4>
+                        <p class="text-sm text-gray-600">
+                            بدلاً من النماذج الطويلة المنفرة، نعرض سؤالاً واحداً في كل خطوة (نوع القضية؟ فرد أم شركة؟) لزيادة الالتزام السيكولوجي للزائر وتقليل التخلي.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm text-center transform scale-105 border-2 border-secondary relative">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">محرك البيانات</div>
+                        <div class="w-16 h-16 mx-auto bg-amber-50 text-secondary rounded-full flex items-center justify-center text-2xl mb-4 font-bold border-2 border-amber-100">2</div>
+                        <h4 class="font-bold text-lg text-primary mb-3">المغناطيس التسويقي (Lead Magnet)</h4>
+                        <p class="text-sm text-gray-600">
+                            نوافذ ذكية (Exit-Intent) تقدم أدوات مجانية كـ "أدلة الامتثال القانوني" مقابل البريد الإلكتروني، للزوار غير الجاهزين للاتصال المباشر.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm text-center border border-gray-100">
+                        <div class="w-16 h-16 mx-auto bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center text-2xl mb-4 font-bold border-2 border-indigo-100">3</div>
+                        <h4 class="font-bold text-lg text-primary mb-3">صفحات هبوط للإعلانات (PPC)</h4>
+                        <p class="text-sm text-gray-600">
+                            صفحات مخصصة للحملات خالية من القوائم العلوية المشتتة، تركز حصراً على إبراز التراخيص، شهادات العملاء، ودعوة إجراء واحدة واضحة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-10" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- Slide 10: Sitemap & Structure -->
+        <section id="slide-10" class="slide bg-white">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">UI/UX & CRO Strategy</span>
+                </div>
+
+                <h2 class="slide-title">خريطة الموقع وهياكل الصفحات</h2>
+                <p class="slide-subtitle">إعادة هيكلة الموقع ليصبح بديهياً وسهل التصفح للعميل</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Sitemap -->
+                    <div class="bg-lightbg p-8 rounded-xl border border-gray-200">
+                        <h3 class="text-xl font-bold mb-5 text-primary border-b pb-2"><i class="fa-solid fa-sitemap text-blue-500 ml-2"></i> خريطة الموقع (Sitemap)</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <div><strong class="text-primary block">الرئيسية وعن المكتب</strong> التراخيص والاعتمادات، وسير فريق المحامين.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <div><strong class="text-primary block">قائمة الخدمات (تصنيف دقيق)</strong> قطاع الشركات، التقاضي الأفراد، والملكية الفكرية.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <div><strong class="text-primary block">المركز المعرفي وباقات الأعمال</strong> المدونة القانونية والباقات المخصصة للشركات.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <div><strong class="text-primary block">دراسات الحالة والتواصل</strong> قصص النجاح، بيانات التواصل، ونموذج التقييم.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Structures -->
+                    <div class="bg-lightbg p-8 rounded-xl border border-gray-200">
+                        <h3 class="text-xl font-bold mb-5 text-primary border-b pb-2"><i class="fa-solid fa-layer-group text-secondary ml-2"></i> هياكل الصفحات الاستراتيجية</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-angle-left text-secondary mt-1"></i>
+                                <div><strong class="text-primary block">الرئيسية (Hero Section):</strong> عنوان قوي للقيمة المقترحة، أزرار إجراء أساسية، شريط ثقة (تراخيص)، ثم نموذج التفاعل والمراجعات.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-angle-left text-secondary mt-1"></i>
+                                <div><strong class="text-primary block">صفحات الخدمات:</strong> عنوان يلامس ألم العميل، فقرة إحصائيات نجاح، أسئلة شائعة (FAQ)، ونموذج مخصص بنهاية الصفحة.</div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-angle-left text-secondary mt-1"></i>
+                                <div><strong class="text-primary block">صفحة المدونة:</strong> واجهة نظيفة مع شريط جانبي ثابت يعرض (Lead Magnet) لدعوة القراء للتحميل وإدخالهم في الأتمتة.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-11" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- Slide 11: Pricing Packages -->
+        <section id="slide-11" class="slide bg-lightbg border-y border-gray-200">
+            <div class="container mx-auto px-6 max-w-[1400px]">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">UI/UX & CRO Strategy</span>
+                </div>
+
+                <h2 class="slide-title !mb-4">الباقات القانونية لقطاع الأعمال</h2>
+                <p class="slide-subtitle max-w-2xl mx-auto">تجهيز وهندسة واجهات باقات الشركات لضمان الشفافية التامة وتخفيف تردد العميل.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Plan 1 -->
+                    <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col">
+                        <h3 class="text-2xl font-bold text-primary mb-2">الباقة المرنة</h3>
+                        <p class="text-sm text-gray-500 mb-6 border-b border-gray-100 pb-6">للمؤسسات الصغيرة والناشئة.</p>
+                        <div class="text-2xl font-black text-primary mb-8">تواصل معنا</div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fa-solid fa-check text-green-500"></i> ٥ ساعات استشارية شهرياً</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fa-solid fa-check text-green-500"></i> مراجعة وصياغة عقدين</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fa-solid fa-check text-green-500"></i> إنذارات عدلية (حسب الطلب)</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-400"><i class="fa-solid fa-minus"></i> <del>تمثيل قضائي</del></li>
+                        </ul>
+                    </div>
+
+                    <!-- Plan 2 -->
+                    <div class="bg-primary rounded-2xl p-8 border-2 border-secondary shadow-xl transform scale-105 relative flex flex-col z-10">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider">الأكثر طلباً</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">الباقة الذهبية</h3>
+                        <p class="text-sm text-gray-300 mb-6 border-b border-gray-700 pb-6">للشركات المتوسطة لحماية عقودها.</p>
+                        <div class="text-2xl font-black text-white mb-8">حسب التقييم</div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-center gap-3 text-sm text-gray-200"><i class="fa-solid fa-check text-secondary"></i> ١٥ ساعة استشارية شهرياً</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-200"><i class="fa-solid fa-check text-secondary"></i> مراجعة وصياغة ٥ عقود</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-200"><i class="fa-solid fa-check text-secondary"></i> التمثيل القضائي (حتى ٣ قضايا)</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-200"><i class="fa-solid fa-check text-secondary"></i> تحصيل الديون المتعثرة</li>
+                        </ul>
+                    </div>
+
+                    <!-- Plan 3 -->
+                    <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col">
+                        <h3 class="text-2xl font-bold text-primary mb-2">الباقة البلاتينية</h3>
+                        <p class="text-sm text-gray-500 mb-6 border-b border-gray-100 pb-6">غطاء شامل للشركات والمصانع الكبرى.</p>
+                        <div class="text-2xl font-black text-primary mb-8">باقة مخصصة</div>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fa-solid fa-check text-green-500"></i> ساعات استشارية غير محدودة</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fa-solid fa-check text-green-500"></i> صياغة عقود لا محدودة</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fa-solid fa-check text-green-500"></i> تمثيل قضائي مفتوح</li>
+                            <li class="flex items-center gap-3 text-sm text-gray-700"><i class="fa-solid fa-check text-green-500"></i> مستشار قانوني مخصص</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-12" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- ==================== SECTION 4: PROGRAMMING ==================== -->
+
+        <!-- Slide 12: Programming & Tech Stack -->
+        <section id="slide-12" class="slide bg-white">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Programming & Tech Strategy</span>
+                </div>
+
+                <h2 class="slide-title">البنية التقنية والبرمجة (Tech Stack)</h2>
+                <p class="slide-subtitle">بنية تحتية برمجية آمنة، سريعة الاستجابة، وتتكامل مع أدوات التسويق والإدارة</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-lightbg p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                        <i class="fa-brands fa-wordpress text-4xl text-blue-500 mb-3"></i>
+                        <h4 class="font-bold text-primary mb-1">الأساس والإدارة</h4>
+                        <p class="text-xs text-gray-500">قالب WordPress مخصص بالكامل، مستضاف على خوادم سحابية (Managed Cloud).</p>
+                    </div>
+                    <div class="bg-lightbg p-6 rounded-xl border border-gray-100 text-center shadow-sm border-b-4 border-emerald-500">
+                        <i class="fa-solid fa-shield-halved text-4xl text-emerald-500 mb-3"></i>
+                        <h4 class="font-bold text-primary mb-1">الأمان والامتثال</h4>
+                        <p class="text-xs text-gray-500">جدار حماية (WAF) وتوافق تام مع تشريعات حماية البيانات السعودية.</p>
+                    </div>
+                    <div class="bg-lightbg p-6 rounded-xl border border-gray-100 text-center shadow-sm border-b-4 border-purple-500">
+                        <i class="fa-solid fa-database text-4xl text-purple-500 mb-3"></i>
+                        <h4 class="font-bold text-primary mb-1">الربط البرمجي (CRM)</h4>
+                        <p class="text-xs text-gray-500">ربط النماذج عبر API مع LawSurface أو Vtiger للمتابعة المباشرة للفرص البيعية.</p>
+                    </div>
+                    <div class="bg-lightbg p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                        <i class="fa-solid fa-chart-pie text-4xl text-amber-500 mb-3"></i>
+                        <h4 class="font-bold text-primary mb-1">التتبع (GA4 & GTM)</h4>
+                        <p class="text-xs text-gray-500">تضمين أدوات التتبع برمجياً لقياس النقرات ومسارات التحويل بدقة.</p>
+                    </div>
+                    <div class="bg-lightbg p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                        <i class="fa-solid fa-bolt text-4xl text-yellow-500 mb-3"></i>
+                        <h4 class="font-bold text-primary mb-1">السرعة والأداء</h4>
+                        <p class="text-xs text-gray-500">تخزين مؤقت (Object Caching) وضغط صور (WebP) لتحقيق سرعات قياسية.</p>
+                    </div>
+                    <div class="bg-lightbg p-6 rounded-xl border border-gray-100 text-center shadow-sm border-b-4 border-red-500">
+                        <i class="fa-solid fa-envelope-open-text text-4xl text-red-500 mb-3"></i>
+                        <h4 class="font-bold text-primary mb-1">أتمتة التسويق</h4>
+                        <p class="text-xs text-gray-500">ربط بـ ActiveCampaign لرسائل (Drip Campaigns) الأوتوماتيكية.</p>
+                    </div>
+                    <div class="bg-lightbg p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                        <i class="fa-brands fa-html5 text-4xl text-orange-500 mb-3"></i>
+                        <h4 class="font-bold text-primary mb-1">واجهات حديثة</h4>
+                        <p class="text-xs text-gray-500">برمجة بـ Tailwind CSS أو React لتجربة فائقة السلاسة على الجوال.</p>
+                    </div>
+                    <div class="bg-lightbg p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                        <i class="fa-solid fa-flask text-4xl text-teal-500 mb-3"></i>
+                        <h4 class="font-bold text-primary mb-1">اختبارات A/B</h4>
+                        <p class="text-xs text-gray-500">استخدام VWO لاختبار تباينات التصميم والمحتوى بشكل مستمر.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-secondary"></i><span class="text-sm font-bold text-gray-400">Richline.sa</span></div>
+            <a href="#slide-13" class="next-slide-btn"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </section>
+
+        <!-- ==================== SECTION 5: ROADMAP (OVERALL) ==================== -->
+
+        <!-- Slide 13: Priorities & Timeline (Overall Roadmap) -->
+        <section id="slide-13" class="slide bg-primary text-white">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <!-- Label Button -->
+                <div class="flex justify-center mb-4">
+                    <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Project Roadmap</span>
+                </div>
+
+                <h2 class="slide-title text-white">خريطة طريق المشروع الكلية (90 يوماً) والأولويات</h2>
+                <p class="slide-subtitle text-gray-400">مراحل إطلاق المنصة وتفعيل الاستحواذ الرقمي المتكامل</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Timeline -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-secondary border-b border-gray-700 pb-3">مراحل التنفيذ الشاملة</h3>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 flex-shrink-0 bg-blue-500 rounded-lg flex justify-center items-center font-bold text-xl">M1</div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1 text-white">التأسيس و UI/UX</h4>
+                                    <p class="text-sm text-gray-400">تصميم الواجهات، برمجة النماذج، الاستضافة، وربط الـ CRM.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 flex-shrink-0 bg-indigo-500 rounded-lg flex justify-center items-center font-bold text-xl">M2</div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1 text-white">المحتوى والسيو (SEO) والإطلاق</h4>
+                                    <p class="text-sm text-gray-400">الإطلاق الرسمي، نشر المقالات، تجهيز حسابات الإعلانات.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 flex-shrink-0 bg-secondary rounded-lg flex justify-center items-center font-bold text-xl">M3</div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1 text-white">الحملات المدفوعة والتحسين</h4>
+                                    <p class="text-sm text-gray-400">إطلاق حملات Google و Meta، اختبار A/B، وتحسين التكلفة.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Priorities -->
+                    <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-xl">
+                        <h3 class="text-2xl font-bold mb-6 text-white border-b border-gray-700 pb-3">أولويات التنفيذ (لا تسويات فيها)</h3>
+                        <ul class="space-y-5">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-1 text-secondary mt-1"></i>
+                                <p class="text-sm text-gray-300"><strong class="text-white">مسارات التحويل والربط:</strong> يجب الانتهاء من النماذج و CRM قبل إطلاق أي إعلان لمنع إهدار الميزانية.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-2 text-secondary mt-1"></i>
+                                <p class="text-sm text-gray-300"><strong class="text-white">الامتثال المهني:</strong> مراجعة كافة النسخ التسويقية لضمان توافقها التام مع نظام الهيئة السعودية للمحامين.</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-3 text-secondary mt-1"></i>
+                                <p class="text-sm text-gray-300"><strong class="text-white">عناصر الثقة:</strong> إبراز التراخيص، وشفافية التسعير لبناء موثوقية عالية مع الزائر القادم من الإعلانات.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="watermark"><i class="fa-solid fa-chart-line text-gray-600"></i><span class="text-sm font-bold text-gray-600">Richline.sa</span></div>
+            <a href="#slide-1" class="next-slide-btn"><i class="fa-solid fa-chevron-up text-2xl"></i></a>
+        </section>
+
+    </main>
+
+</body>
+</html>
